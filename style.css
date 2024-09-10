@@ -9,13 +9,26 @@ body{
     width: 100vw;
 }
 
+main{
+    padding: 24px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .title{
     font-weight: 800;
 }
 
 .header-container{
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2) ;
-    
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2) ;
+}
+
+.DarkMode{
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
 .header-content{
@@ -26,5 +39,46 @@ body{
     margin-inline: auto;
     padding-inline: 24px;
     height: 60px;
-    
+}
+
+.countries-container{
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-top : 16px;
+    display: flex;
+    gap: 64px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.country-card{
+    display: inline-block;
+    width: max-content;
+    width: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2) ;
+    padding-bottom: 24px ;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.country-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2) ;
+}
+
+.country-card img{
+    width: 100%;
+}
+
+.card-title{
+    font-size: 24px;
+    margin-block: 16px;
+}
+.card-text p{
+    margin-block: 8px;
+}
+.card-text{
+    padding-inline: 16px;
 }
