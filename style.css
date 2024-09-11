@@ -44,15 +44,35 @@ a{
     height: 60px;
 }
 
+.Search-filter-container{
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+.Search-Container{
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2) ; 
+    max-width: 400px ;
+    border-radius: 4px;
+    padding-left: 24px;
+}
+
+.Search-Container input{
+    width: 90%;
+    border: none;
+    outline: none;
+    padding:16px;
+}
+
 .countries-container{
     max-width: 1200px;
-    margin-inline: auto;
     margin-top : 16px;
     display: flex;
     gap: 64px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.Search-Container:hover{ outline:2px solid #ddd }
 
 .country-card{
     display: inline-block;
