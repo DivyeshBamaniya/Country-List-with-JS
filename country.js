@@ -52,19 +52,24 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     else
         languages.innerText = "--";
 
-    // borderCountries
-    // try {
-    //     if(country.borders)
-    //         country.borders.forEach(element => {
-    //             const anchor = document.createElement("a");
-    //             anchor.href="#";
-    //             anchor.textContent = element;
-    //         });
-
-    //     else
-    //         borderCountries.textContent = "--";
-    // } catch (error) {
+        console.log("helo");
         
-    // }
+    // Fetching data of borders
+    if(country.borders){
+        country.borders.forEach((border)=>
+            fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+            .then(response=> response.json())
+            .then(([borderCountry])=>{
+                borderCountryTag = document.createElement("a");
+                borderCountryTag.href =  `./country.html?name=${borderCountry.name.common}`;
+                borderCountryTag.innerText = borderCountry.name.common;
+                borderCountries.appendChild(borderCountryTag);
+            }
+                
+            )
+        )
+    }
+    else
+        borderCountries.innerText += " --";
 
   })
