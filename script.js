@@ -7,16 +7,19 @@ fetch("https://restcountries.com/v3.1/all")
 
 filterByRegion.addEventListener('change', e=>{
   
-
+fetch(`https://restcountries.com/v3.1/region/${e.target.value}`)
+    .then(response => response.json())
+    .then(renderCountries)
+    CountryContainer.innerHTML = "";
 })
 
 function renderCountries(data){
     data.forEach(countries => {
-
+        
         const countryCard = document.createElement('a');
         countryCard.classList.add("country-card");
         countryCard.href = `./country.html?name=${countries.name.common}&fullText=true`;
-        
+      
         countryCard.innerHTML =
                     `<img src="${countries.flags.svg}" alt="Flag">
                     <div class="card-text">
