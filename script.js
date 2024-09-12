@@ -2,11 +2,34 @@ const CountryContainer = document.querySelector(".countries-container");
 const filterByRegion = document.querySelector(".filter-by-region");
 const searchInput = document.querySelector(".Search-input");
 const img = document.querySelector(".errorImage");
+const darkButton = document.querySelector(".DarkMode");
+const darkIcon = document.querySelector(".Dark-icon");
+const modeText = document.querySelector("[data-modeText]");
+
+let allCountriesData
+
+// Dark Button Logic
+darkButton.addEventListener('click',()=>{    
+    document.body.classList.toggle("dark");
+    
+    if(document.body.classList.contains("dark")){
+    darkIcon.setAttribute("class", "fa-regular fa-sun");
+    modeText.innerText = "Light Mode";
+    }
+
+    else{
+      darkIcon.setAttribute("class", "Dark-icon fa-regular fa-moon fa-rotate-by");
+      modeText.innerText = "Dark Mode";  
+    } 
+})
 
 // Initial Data for all countries
 fetch("https://restcountries.com/v3.1/all")
     .then(response => response.json())
-    .then(renderCountries)
+    .then((data)=>{
+        renderCountries(data);
+        allCountriesData = data;
+    })
 
 // Filter By Region
 filterByRegion.addEventListener('change', e=>{
@@ -18,33 +41,28 @@ filterByRegion.addEventListener('change', e=>{
 })
 
 // Search By Country Name
-searchInput.addEventListener('change',(e)=>{
+searchInput.addEventListener('input',(e)=>{
+
 
     CountryContainer.innerHTML = "";
-    fetch(`https://restcountries.com/v3.1/name/${e.target.value}`)
-    .then(response => response.json())
-    .then(renderCountries)
-    .catch(
-        // Function shows when No country is found as inserted
-        ()=>{
-            const imgNotFound =  document.createElement("img");
-            imgNotFound.src = "./images/not-found.png";
-            imgNotFound.style.width = "250px";
-            imgNotFound.style.height = "300px";
-            img.style.display = "block";
-            CountryContainer.innerHTML = "";
-            img.appendChild(imgNotFound);
-        }
-    )
+
+    const filteredCountries = allCountriesData.filter(country=> {
+        return country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
+    }
+)
+    renderCountries(filteredCountries)
     
 })
 
+
+
+// Dark-Mode implementation
+darkButton.addEventListener('click', ()=>{
+
+})
+// Function for rendering Data
 function renderCountries(data){
 
-    if(data == ""){
-        console.log("Not found");
-        
-    }
     data.forEach(countries => {
         
         const countryCard = document.createElement('a');
