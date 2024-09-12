@@ -5,14 +5,23 @@
 }
 
 :root{
-    --light-color : #2b3743;
-    --dark-color : #202d36;
+    --background-color : white;
+    --text-color : black;
+    --elements-color : white;
 }
 
 body{
     font-family: Nunito, sans-serif;
     width: 100vw;
     overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark{
+    --background-color:hsl(207,26%,17%);
+    --text-color:white;
+    --elements-color: hsl(209,23%,22%);
 }
 
 main{
@@ -24,18 +33,29 @@ a{
     color: inherit;
 }
 
+.background-light{
+    background-color: var(--light-color);
+}
+
+.background-dark{
+    background-color: var(--dark-color);
+}
+
 .title{
     font-weight: 800;
 }
 
 .header-container{
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2) ;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    background-color: var(--elements-color);
+    color: var(--text-color);
 }
 
 .DarkMode{
     text-decoration: none;
     border: none;
-    background-color: white;
+    background-color: inherit;
+    color: var(--text-color);
     cursor: pointer;
 }
 
@@ -63,6 +83,8 @@ a{
     width: 100%;
     border-radius: 4px;
     padding-left: 24px;
+    background-color: var(--elements-color);
+    color: var(--text-color);
 }
 
 .Search-Container input{
@@ -70,15 +92,19 @@ a{
     border: none;
     outline: none;
     padding:16px;
+    background-color: inherit;
+    color: inherit;
 }
 
 .filter-by-region{
-    width: 250px;
+    width: 200px;
     padding: 0 16px;
     outline:none ;
     border: none;
     box-shadow: 0px 0px 8px rgba(0,0,0,0.15);
     border-radius: 4px;
+    background-color: var(--elements-color);
+    color: var(--text-color);
 }
 
 .countries-container{
@@ -107,7 +133,8 @@ a{
     box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2) ;
     padding-bottom: 24px ;
     transition: all 0.2s ease-in-out;
-
+    background-color: var(--elements-color);
+    color: var(--text-color);
 }
 
 .country-card:hover{
