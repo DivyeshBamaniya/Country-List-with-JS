@@ -33,14 +33,6 @@ a{
     color: inherit;
 }
 
-.background-light{
-    background-color: var(--light-color);
-}
-
-.background-dark{
-    background-color: var(--dark-color);
-}
-
 .title{
     font-weight: 800;
 }
