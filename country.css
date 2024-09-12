@@ -1,3 +1,13 @@
+body.dark{
+    --background-color:hsl(207,26%,17%);
+    --text-color:white;
+    --elements-color: hsl(209,23%,22%);
+}
+
+.back-button{
+    background-color: var(--elements-color);
+}
+
 .country-details-container {
     max-width: 1200px;
     margin-inline: auto;
